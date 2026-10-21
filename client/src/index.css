@@ -1,0 +1,230 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#0B0F14] text-[#F5F7FA] font-sans antialiased selection:bg-[#C6FF00] selection:text-black;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #F5F7FA;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B0F14;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2A3442;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #C6FF00;
+}
+
+/* Hide scrollbars when scrollbar-none utility is used */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Card Surfaces & Glassmorphism */
+.glass-card {
+  background-color: #161D27;
+  border: 1px solid #2A3442;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.glass-card-hover {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-card-hover:hover {
+  background-color: #1B2430;
+  border-color: #3A4759;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  transform: translateY(-2px);
+}
+
+/* Image Card Hover Zoom Effect */
+.img-hover-zoom {
+  transition: transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.group:hover .img-hover-zoom {
+  transform: scale(1.06);
+}
+
+/* CTA Button Styles */
+.btn-neon-primary {
+  background-color: #C6FF00;
+  color: #0B0F14;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.2s ease;
+  box-shadow: 0 0 16px rgba(198, 255, 0, 0.25);
+}
+
+.btn-neon-primary:hover {
+  background-color: #b5ea00;
+  box-shadow: 0 0 25px rgba(198, 255, 0, 0.45);
+  transform: translateY(-1px);
+}
+
+.btn-neon-primary:active {
+  transform: scale(0.97);
+}
+
+.btn-dark-secondary {
+  background: #1B2430;
+  border: 1px solid #2A3442;
+  color: #F5F7FA;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.2s ease;
+}
+
+.btn-dark-secondary:hover {
+  border-color: rgba(198, 255, 0, 0.5);
+  color: #ffffff;
+  background: #2A3442;
+  transform: translateY(-1px);
+}
+
+.btn-dark-secondary:active {
+  transform: scale(0.97);
+}
+
+.neon-border {
+  border: 1px solid #C6FF00;
+  box-shadow: 0 0 14px rgba(198, 255, 0, 0.25);
+}
+
+.neon-text-glow {
+  text-shadow: 0 0 14px rgba(198, 255, 0, 0.5);
+}
+
+/* Section Background Variations */
+.bg-section-obsidian {
+  background-color: #0B0F14;
+}
+
+.bg-section-charcoal {
+  background-color: #121821;
+}
+
+.bg-section-midnight {
+  background-color: #161D27;
+}
+
+/* Subtle Neon Glow Keyframes for Logo & Badges */
+@keyframes neonGlowPulse {
+
+  0%,
+  100% {
+    filter: drop-shadow(0 0 6px rgba(198, 255, 0, 0.3));
+    box-shadow: 0 0 15px rgba(198, 255, 0, 0.15);
+  }
+
+  50% {
+    filter: drop-shadow(0 0 12px rgba(198, 255, 0, 0.5));
+    box-shadow: 0 0 25px rgba(198, 255, 0, 0.35);
+  }
+}
+
+.animate-logo-glow {
+  animation: neonGlowPulse 4s ease-in-out infinite;
+}
+
+/* Skeleton Loading Line Animation */
+@keyframes skeletonShimmer {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.skeleton-neon {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.04) 25%, rgba(198, 255, 0, 0.15) 50%, rgba(255, 255, 255, 0.04) 75%);
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.8s infinite linear;
+}
+
+/* Pulse animation for timer */
+@keyframes timerPulse {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.85;
+    transform: scale(1.02);
+  }
+}
+
+.animate-timer {
+  animation: timerPulse 2s ease-in-out infinite;
+}
+
+/* Checkmark pop success animation */
+@keyframes popSuccess {
+  0% {
+    transform: scale(0.6);
+    opacity: 0;
+  }
+
+  70% {
+    transform: scale(1.15);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-pop-success {
+  animation: popSuccess 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* Reduced Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
